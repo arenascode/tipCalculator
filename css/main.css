@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+input {
+  border: none; }
+
+/* IMG */
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  display: block; }
+
+:root {
+  /* primary colors */
+  --primary-strong-cyan: hsl(172, 67%, 45%);
+  /* Neutral Colors */
+  --Very-dark-cyan: hsl(183, 100%, 15%);
+  --Dark-grayish-cyan: hsl(186, 14%, 43%);
+  --Grayish-cyan: hsl(184, 14%, 56%);
+  --Light-grayish-cyan: hsl(185, 41%, 84%);
+  --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+  --color-titles: hsl(186, 14%, 43%);
+  /* Typography */
+  --font-family: "Space Mono", monospace;
+  --font-size-input: 24px;
+  --font-weight-bold: 700; }
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: var(--Light-grayish-cyan);
+  font-family: "Space Mono", monospace;
+  font-weight: var(--font-weight-bold); }
+  body h1 {
+    text-align: center;
+    letter-spacing: 4px;
+    color: var(--color-titles);
+    margin: 30px 0;
+    font-size: 24px; }
+  body #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--White);
+    min-height: 100vh;
+    min-width: 100vw;
+    border-radius: 20px; }
+    body #container #sectionBill {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 8px; }
+      body #container #sectionBill .sectionBillTitle {
+        color: var(--Dark-grayish-cyan); }
+      body #container #sectionBill .inputBill {
+        background-color: var(--Very-light-grayish-cyan);
+        color: var(--Very-dark-cyan);
+        font-family: var(--font-size-input);
+        font-size: var(--font-size-input);
+        text-align: right;
+        font-weight: bold;
+        border-radius: 5px;
+        background-image: url("../images/icon-dollar.svg");
+        background-repeat: no-repeat;
+        background-position: 15px;
+        padding-right: 15px;
+        margin-top: 5px; }
+      body #container #sectionBill .inputBill:hover {
+        border: 1.8px solid #26c0ab;
+        cursor: pointer;
+        width: inherit; }
+    body #container #sectionSelectTip {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: inherit;
+      padding: 18px;
+      margin-left: 10px; }
+      body #container #sectionSelectTip .selectTipTitle {
+        color: var(--Dark-grayish-cyan);
+        align-items: flex-start;
+        text-align: left;
+        margin-left: 5px; }
+      body #container #sectionSelectTip #tipPercentages {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 15px;
+        margin-top: 10px;
+        min-width: max-content; }
+        body #container #sectionSelectTip #tipPercentages .tipSelected {
+          background-color: var(--Very-dark-cyan);
+          color: var(--White);
+          width: 155px;
+          height: 45px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          font-weight: 600;
+          letter-spacing: 1.5px; }
+        body #container #sectionSelectTip #tipPercentages .tipSelected:last-child {
+          background-color: var(--Very-light-grayish-cyan);
+          color: var(--Dark-grayish-cyan);
+          letter-spacing: 1.8px;
+          text-align: end;
+          padding-right: 10px; }
+        body #container #sectionSelectTip #tipPercentages .tipSelected:hover {
+          cursor: pointer;
+          background-color: var(--Light-grayish-cyan);
+          color: var(--Very-dark-cyan); }
+        body #container #sectionSelectTip #tipPercentages input[data-type="custom"]:hover {
+          border: 1.8px solid #26c0ab; }
+    body #container #sectionNumberOfPeople {
+      display: flex;
+      flex-direction: column; }
+      body #container #sectionNumberOfPeople .sectionNumberOfPeople_title {
+        color: var(--Grayish-cyan); }
+      body #container #sectionNumberOfPeople .inputNumberOfPeople {
+        /* @extend .inputBill; */
+        background-color: var(--Very-light-grayish-cyan);
+        color: var(--Very-dark-cyan);
+        font-family: var(--font-size-input);
+        font-size: var(--font-size-input);
+        text-align: right;
+        font-weight: bold;
+        border-radius: 5px;
+        background-image: url("../images/icon-person.svg");
+        background-repeat: no-repeat;
+        background-position: 15px;
+        padding-right: 15px;
+        margin: 10px 0; }
+      body #container #sectionNumberOfPeople .inputNumberOfPeople:hover {
+        border: 1.5px solid #26c0ab;
+        cursor: pointer;
+        width: inherit; }
+    body #container #sectionTotalAmount {
+      background-color: var(--Very-dark-cyan);
+      color: var(--White);
+      border-radius: 10px;
+      padding: 18px;
+      margin: 20px 25px; }
+      body #container #sectionTotalAmount .tipDetails {
+        display: grid;
+        grid-template-areas: "area1 area2" "area3 area4";
+        grid-gap: 20px 120px; }
+      body #container #sectionTotalAmount .tipAmountText {
+        grid-area: area1;
+        width: max-content; }
+        body #container #sectionTotalAmount .tipAmountText small {
+          color: var(--Grayish-cyan); }
+      body #container #sectionTotalAmount .tipValue {
+        grid-area: area2;
+        font-size: var(--font-size-input);
+        color: var(--primary-strong-cyan);
+        text-align: right; }
+      body #container #sectionTotalAmount .totalText {
+        grid-area: area3; }
+        body #container #sectionTotalAmount .totalText small {
+          color: var(--Grayish-cyan); }
+      body #container #sectionTotalAmount .totalValue {
+        grid-area: area4;
+        font-size: var(--font-size-input);
+        color: var(--primary-strong-cyan);
+        text-align: right; }
+      body #container #sectionTotalAmount #resetBtn {
+        width: 100%;
+        background-color: var(--primary-strong-cyan);
+        color: var(--Very-dark-cyan);
+        font-size: var(--font-size-input);
+        font-weight: var(--font-weight-bold);
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        padding: 15px;
+        letter-spacing: 1.5px; }
+      body #container #sectionTotalAmount #resetBtn:hover {
+        cursor: pointer;
+        background-color: var(--Light-grayish-cyan); }
