@@ -70,6 +70,9 @@ body {
         cursor: pointer;
         width: inherit;
       }
+      input.inputBill:focus {
+        border: 1.8px solid hsl(172, 67%, 45%);
+      }
     }
     #sectionSelectTip {
       display: flex;
@@ -118,7 +121,7 @@ body {
           color: var(--Very-dark-cyan);
         }
         input[data-type="custom"]:hover {
-        border: 1.8px solid hsl(172, 67%, 45%);
+          border: 1.8px solid hsl(172, 67%, 45%);
         }
       }
     }
@@ -199,11 +202,11 @@ body {
         margin-top: 15px;
         padding: 15px;
         letter-spacing: 1.5px;
-        }
-        #resetBtn:hover {
-          cursor: pointer;
-          background-color: var(--Light-grayish-cyan);
-        }
+      }
+      #resetBtn:hover {
+        cursor: pointer;
+        background-color: var(--Light-grayish-cyan);
+      }
     }
   }
 }

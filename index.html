@@ -12,24 +12,24 @@
     <main id="container">
     <section id="sectionBill">
     <label for="bill" class="sectionBillTitle">Bill</label>
-    <input type='text' name="bill" class="inputBill">
+    <input type='text' name="bill" class="inputBill" id="inputBill" placeholder="0">
     </section>
     <section id="sectionSelectTip">
       <p class="selectTipTitle">Select Tip % </p>
       <div id="tipPercentages">
-      <div class="tipSelected">5%</div>
-      <div class="tipSelected">10%</div>
-      <div class="tipSelected">15%</div>
-      <div class="tipSelected">25%</div>
-      <div class="tipSelected">50%</div>
-      <input class="tipSelected" data-type="custom" placeholder="CUSTOM"></input>
+      <div data-tip="0.05" class="tipSelected">5%</div>
+      <div data-tip="0.1" class="tipSelected">10%</div>
+      <div data-tip="0.15" class="tipSelected">15%</div>
+      <div data-tip="0.25" class="tipSelected">25%</div>
+      <div data-tip="0.50" class="tipSelected">50%</div>
+      <input class="tipSelected" data-tip="custom" placeholder="CUSTOM"></input>
       </div>
     </section>
     <section id="sectionNumberOfPeople">
     <p class="sectionNumberOfPeople_title">
       Number of People
     </p>
-    <input type="text" name="numberOfPeople" class="inputNumberOfPeople">
+    <input type="text" name="numberOfPeople" class="inputNumberOfPeople" placeholder="0" oninput="totalBillWithTips(event)">
     </section>
     <section id="sectionTotalAmount">
       <div class="tipDetails">
@@ -41,8 +41,8 @@
         <br>
         <small>/ person</small>
       </div>
-      <div class="tipValue">$4.27</div>
-      <div class="totalValue">$32.79</div>
+      <div class="tipValue">$0.00</div>
+      <div class="totalValue">$0.00</div>
       </div>
       <button id="resetBtn" type="reset">RESET</button>
     </section>

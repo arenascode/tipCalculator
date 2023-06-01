@@ -80,6 +80,8 @@ body {
         border: 1.8px solid #26c0ab;
         cursor: pointer;
         width: inherit; }
+      body #container #sectionBill input.inputBill:focus {
+        border: 1.8px solid #26c0ab; }
     body #container #sectionSelectTip {
       display: flex;
       flex-direction: column;
