@@ -35,7 +35,6 @@ function customTip(e) {
   selectedPercentage = Number(e.target.value) / 100;
   console.log(`CustomTip ${selectedPercentage}`);
   totalBillWithTips(e);
-  console.log(peopleQty);
 }
 //console.log(percentageTipBtns[5].dataset.tip);
 
@@ -57,14 +56,14 @@ function totalBillWithTips(e) {
     //total Bill + Tips
 
     let totalTipAmount = selectedPercentage * billWithoutTip;
-    let tipPerPerson = Math.round(totalTipAmount / peopleQty.value);
+    let tipPerPerson = (totalTipAmount / peopleQty.value).toFixed(2);
     console.log(`I'm tip x Person ${tipPerPerson}`);
     let totalWithTip = Math.floor(billWithoutTip + totalTipAmount);
     console.log(`totalWithTip ${totalWithTip}`);
-    totalPerPerson = Math.round(totalWithTip / Number(peopleQty.value));
+    totalPerPerson = ((totalWithTip / Number(peopleQty.value))).toFixed(2);
     console.log(`TotalByPerson ${totalPerPerson}`);
-    tipAmountDiv.innerText = tipPerPerson;
-    totalPerPersonDiv.innerText = totalPerPerson;
+    tipAmountDiv.innerText = `$${tipPerPerson}`;
+    totalPerPersonDiv.innerText = `$${totalPerPerson}`;
   }
 }
 
