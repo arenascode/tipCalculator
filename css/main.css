@@ -56,7 +56,7 @@ body {
     align-items: center;
     background-color: var(--White);
     min-height: 100vh;
-    min-width: 100vw;
+    min-width: -webkit-fill-available;
     border-radius: 20px; }
     body #container #sectionBill {
       display: flex;
