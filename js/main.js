@@ -1,53 +1,79 @@
 console.log(`hello world!`);
 
 //Input Bill
-const inputBill = document.getElementById('inputBill')
+const inputBill = document.getElementById("inputBill");
 
 //percentage buttons
-const percentageTipBtns = document.getElementsByClassName('tipSelected')
-const arrayOfTips = Array.from(percentageTipBtns)
+const percentageTipBtns = document.getElementsByClassName("tipSelected");
+const arrayOfDefaultTips = Array.from(percentageTipBtns);
 //custom input Tip
-const customInputTip = document.querySelector(`input[data-tip="custom"]`)
+const customInputTip = document.querySelector(`input[data-tip="custom"]`);
 //Input people quantity
-const peopleQty = document.querySelector('.inputNumberOfPeople')
+const peopleQty = document.querySelector(".inputNumberOfPeople");
 console.log(peopleQty.value);
+const resetBtn = document.getElementById('resetBtn')
 
-let selectedTip = 0
-let billWithoutTip = 0
-let totalByPerson = 0
-let tipByPerson = 0
+//Outputs elements
+const tipAmountDiv = document.querySelector(".tipValue");
+const totalPerPersonDiv = document.querySelector(".totalValue");
+const emptyField = document.querySelector("#emptyField");
+let selectedPercentage = 0;
+let billWithoutTip = 0;
+let totalPerPerson = 0;
+let tipByPerson = 0;
 
 // Obtain the percentage of tip
-arrayOfTips.forEach(e =>
-  e.addEventListener('click', () => {
-    selectedTip = Number(e.dataset.tip)
-    console.log(`element selected ${selectedTip}`);
+arrayOfDefaultTips.forEach((e) =>
+  e.addEventListener("click", () => {
+    selectedPercentage = Number(e.dataset.tip);
+
+    console.log(`element selected ${selectedPercentage}`);
   })
-)
+);
+
+function customTip(e) {
+  selectedPercentage = Number(e.target.value) / 100;
+  console.log(`CustomTip ${selectedPercentage}`);
+  totalBillWithTips(e);
+  console.log(peopleQty);
+}
+//console.log(percentageTipBtns[5].dataset.tip);
 
 function totalBillWithTips(e) {
-  e.preventDefault()
-  console.log(`Tip Percentage ${selectedTip}`);
-    //obtain value of input 
-  let billWithoutTip = Number(inputBill.value)
-  console.log(`BillWhitoutTip ${billWithoutTip}`);
+  e.preventDefault();
+  //obtain value of input
+  const isItEmpty = peopleQty.value == 0; /* || peopleQty.value == undefined; */
+  console.log(isItEmpty);
+  if (isItEmpty) {
+    console.log(`number of people cant' be zero`);
+    peopleQty.classList.add("inputEmpty");
+
+    emptyField.style.display = "block";
+  } else {
+    peopleQty.classList.remove("inputEmpty");
+    emptyField.style.display = "none";
+    let billWithoutTip = Number(inputBill.value);
+    console.log(`BillWhitoutTip ${billWithoutTip}`);
     //total Bill + Tips
-    if (e.target.dataset.tip == 'custom') {
-      let customTip = Number((customInputTip.value)/100)
-      selectedTip = customTip
-    }
-    let totalWithTip = billWithoutTip * selectedTip
-  console.log(`totalWithTip ${totalWithTip}`);
-  totalByPerson = totalWithTip / Number(peopleQty.value)
-  console.log(`TotalByPerson ${totalByPerson}`);
+
+    let totalTipAmount = selectedPercentage * billWithoutTip;
+    let tipPerPerson = Math.round(totalTipAmount / peopleQty.value);
+    console.log(`I'm tip x Person ${tipPerPerson}`);
+    let totalWithTip = Math.floor(billWithoutTip + totalTipAmount);
+    console.log(`totalWithTip ${totalWithTip}`);
+    totalPerPerson = Math.round(totalWithTip / Number(peopleQty.value));
+    console.log(`TotalByPerson ${totalPerPerson}`);
+    tipAmountDiv.innerText = tipPerPerson;
+    totalPerPersonDiv.innerText = totalPerPerson;
+  }
 }
 
+arrayOfDefaultTips.forEach((element) => {
+  element.addEventListener("click", totalBillWithTips);
+});
 
-
-// arrayOfTips.forEach(element => {
-//   element.addEventListener('click', totalBillWithTips)
-// })
-
-
+function resetCalculation() {
+  location.reload()
+}
 // let totalBill = totalBillWithTips(e)
 // console.log(totalBill);

@@ -23,6 +23,7 @@ img {
 :root {
   /* primary colors */
   --primary-strong-cyan: hsl(172, 67%, 45%);
+  --primary-red: hsl(1, 90%, 64%);
   /* Neutral Colors */
   --Very-dark-cyan: hsl(183, 100%, 15%);
   --Dark-grayish-cyan: hsl(186, 14%, 43%);
@@ -101,7 +102,7 @@ body {
         grid-gap: 15px;
         margin-top: 10px;
         min-width: max-content; }
-        body #container #sectionSelectTip #tipPercentages .tipSelected {
+        body #container #sectionSelectTip #tipPercentages .tipSelected, body #container #sectionSelectTip #tipPercentages .customTip {
           background-color: var(--Very-dark-cyan);
           color: var(--White);
           width: 155px;
@@ -113,13 +114,13 @@ body {
           font-size: 18px;
           font-weight: 600;
           letter-spacing: 1.5px; }
-        body #container #sectionSelectTip #tipPercentages .tipSelected:last-child {
+        body #container #sectionSelectTip #tipPercentages .customTip {
           background-color: var(--Very-light-grayish-cyan);
           color: var(--Dark-grayish-cyan);
           letter-spacing: 1.8px;
           text-align: end;
           padding-right: 10px; }
-        body #container #sectionSelectTip #tipPercentages .tipSelected:hover {
+        body #container #sectionSelectTip #tipPercentages .tipSelected:hover, body #container #sectionSelectTip #tipPercentages .customTip:hover {
           cursor: pointer;
           background-color: var(--Light-grayish-cyan);
           color: var(--Very-dark-cyan); }
@@ -127,9 +128,17 @@ body {
           border: 1.8px solid #26c0ab; }
     body #container #sectionNumberOfPeople {
       display: flex;
-      flex-direction: column; }
-      body #container #sectionNumberOfPeople .sectionNumberOfPeople_title {
-        color: var(--Grayish-cyan); }
+      flex-direction: column;
+      font-family: var(--font-family); }
+      body #container #sectionNumberOfPeople #titleNumberOfPeopleContainer {
+        display: flex;
+        column-gap: 40px;
+        margin: 10px; }
+        body #container #sectionNumberOfPeople #titleNumberOfPeopleContainer .sectionNumberOfPeople_title {
+          color: var(--Grayish-cyan); }
+        body #container #sectionNumberOfPeople #titleNumberOfPeopleContainer .emptyField {
+          color: var(--primary-red);
+          display: none; }
       body #container #sectionNumberOfPeople .inputNumberOfPeople {
         /* @extend .inputBill; */
         background-color: var(--Very-light-grayish-cyan);
@@ -143,17 +152,20 @@ body {
         background-repeat: no-repeat;
         background-position: 15px;
         padding-right: 15px;
-        margin: 10px 0; }
+        margin: 5px 0 10px 10px;
+        width: fit-content; }
+      body #container #sectionNumberOfPeople .inputEmpty {
+        border: solid 2px var(--primary-red); }
       body #container #sectionNumberOfPeople .inputNumberOfPeople:hover {
         border: 1.5px solid #26c0ab;
-        cursor: pointer;
-        width: inherit; }
+        cursor: pointer; }
     body #container #sectionTotalAmount {
       background-color: var(--Very-dark-cyan);
       color: var(--White);
       border-radius: 10px;
       padding: 18px;
-      margin: 20px 25px; }
+      margin: 20px 25px;
+      width: -webkit-fill-available; }
       body #container #sectionTotalAmount .tipDetails {
         display: grid;
         grid-template-areas: "area1 area2" "area3 area4";
