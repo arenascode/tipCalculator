@@ -26,8 +26,11 @@ let tipByPerson = 0;
 arrayOfDefaultTips.forEach((e) =>
   e.addEventListener("click", () => {
     selectedPercentage = Number(e.dataset.tip);
-
+    arrayOfDefaultTips.forEach((btn) => {
+      btn.classList.remove('clicked')
+    })
     console.log(`element selected ${selectedPercentage}`);
+    e.classList.add('clicked')
   })
 );
 

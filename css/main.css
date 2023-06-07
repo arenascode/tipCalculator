@@ -39,7 +39,7 @@ img {
 
 body {
   display: grid;
-  place-items: center;
+  place-content: center;
   min-height: 100vh;
   background-color: var(--Light-grayish-cyan);
   font-family: "Space Mono", monospace;
@@ -47,7 +47,7 @@ body {
   body h1 {
     text-align: center;
     letter-spacing: 4px;
-    color: var(--color-titles);
+    color: var(--Very-dark-cyan);
     margin: 30px 0;
     font-size: 24px; }
   body #container {
@@ -169,7 +169,8 @@ body {
       body #container #sectionTotalAmount .tipDetails {
         display: grid;
         grid-template-areas: "area1 area2" "area3 area4";
-        grid-gap: 20px 80px; }
+        grid-gap: 20px 80px;
+        justify-content: center; }
       body #container #sectionTotalAmount .tipAmountText {
         grid-area: area1;
         width: max-content; }
@@ -203,3 +204,180 @@ body {
       body #container #sectionTotalAmount #resetBtn:hover {
         cursor: pointer;
         background-color: var(--Light-grayish-cyan); }
+
+@media (min-width: 1440px) {
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: var(--Light-grayish-cyan);
+    font-family: "Space Mono", monospace;
+    font-weight: var(--font-weight-bold); }
+    body h1 {
+      text-align: center;
+      letter-spacing: 4px;
+      color: var(--color-titles);
+      margin-bottom: 60px;
+      font-size: 24px; }
+    body #container {
+      display: grid;
+      grid-template-areas: "sec1 sec4" "sec2 sec4" "sec3 sec4";
+      min-width: fit-content;
+      min-height: auto; }
+      body #container #sectionBill {
+        grid-area: sec1;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 8px;
+        margin: 15px; }
+        body #container #sectionBill .sectionBillTitle {
+          color: var(--Dark-grayish-cyan); }
+        body #container #sectionBill .inputBill {
+          background-color: var(--Very-light-grayish-cyan);
+          color: var(--Very-dark-cyan);
+          font-family: var(--font-size-input);
+          font-size: var(--font-size-input);
+          text-align: right;
+          font-weight: bold;
+          border-radius: 5px;
+          background-image: url("../images/icon-dollar.svg");
+          background-repeat: no-repeat;
+          background-position: 15px;
+          padding-right: 15px;
+          margin-top: 5px; }
+        body #container #sectionBill .inputBill:hover {
+          border: 1.8px solid #26c0ab;
+          cursor: pointer;
+          width: inherit; }
+        body #container #sectionBill input.inputBill:focus {
+          border: 1.8px solid #26c0ab; }
+      body #container #sectionSelectTip {
+        grid-area: sec2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: inherit;
+        padding: 18px;
+        margin-left: 10px; }
+        body #container #sectionSelectTip .selectTipTitle {
+          color: var(--Dark-grayish-cyan);
+          align-items: flex-start;
+          text-align: left;
+          margin-left: 5px; }
+        body #container #sectionSelectTip #tipPercentages {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-gap: 15px;
+          margin-top: 10px;
+          min-width: max-content; }
+          body #container #sectionSelectTip #tipPercentages .tipSelected, body #container #sectionSelectTip #tipPercentages .customTip {
+            background-color: var(--Very-dark-cyan);
+            color: var(--White);
+            width: 155px;
+            height: 45px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1.5px; }
+          body #container #sectionSelectTip #tipPercentages .customTip {
+            background-color: var(--Very-light-grayish-cyan);
+            color: var(--Dark-grayish-cyan);
+            letter-spacing: 1.8px;
+            text-align: end;
+            padding-right: 10px; }
+          body #container #sectionSelectTip #tipPercentages .tipSelected:hover, body #container #sectionSelectTip #tipPercentages .customTip:hover {
+            cursor: pointer;
+            background-color: var(--Light-grayish-cyan);
+            color: var(--Very-dark-cyan); }
+          body #container #sectionSelectTip #tipPercentages .clicked {
+            background-color: #26c0ab;
+            color: var(--Very-dark-cyan); }
+          body #container #sectionSelectTip #tipPercentages input[data-type="custom"]:hover {
+            border: 1.8px solid #26c0ab; }
+      body #container #sectionNumberOfPeople {
+        grid-area: sec3;
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-family);
+        margin: auto 0 5px 10px; }
+        body #container #sectionNumberOfPeople #titleNumberOfPeopleContainer {
+          display: flex;
+          column-gap: 40px;
+          justify-content: space-between;
+          margin: 10px; }
+          body #container #sectionNumberOfPeople #titleNumberOfPeopleContainer .sectionNumberOfPeople_title {
+            color: var(--Grayish-cyan); }
+          body #container #sectionNumberOfPeople #titleNumberOfPeopleContainer .emptyField {
+            color: var(--primary-red);
+            display: none; }
+        body #container #sectionNumberOfPeople .inputNumberOfPeople {
+          /* @extend .inputBill; */
+          background-color: var(--Very-light-grayish-cyan);
+          color: var(--Very-dark-cyan);
+          font-family: var(--font-size-input);
+          font-size: var(--font-size-input);
+          text-align: right;
+          font-weight: bold;
+          border-radius: 5px;
+          background-image: url("../images/icon-person.svg");
+          background-repeat: no-repeat;
+          background-position: 15px;
+          padding-right: 15px;
+          margin: 5px 0 10px 10px;
+          width: auto; }
+        body #container #sectionNumberOfPeople .inputEmpty {
+          border: solid 2px var(--primary-red); }
+        body #container #sectionNumberOfPeople .inputNumberOfPeople:hover {
+          border: 1.5px solid #26c0ab;
+          cursor: pointer; }
+      body #container #sectionTotalAmount {
+        grid-area: sec4;
+        background-color: var(--Very-dark-cyan);
+        color: var(--White);
+        border-radius: 10px;
+        padding: 18px;
+        margin: 20px 25px;
+        width: 350px;
+        height: 350px; }
+        body #container #sectionTotalAmount .tipDetails {
+          display: grid;
+          grid-template-areas: "area1 area2" "area3 area4";
+          grid-gap: 60px 80px; }
+        body #container #sectionTotalAmount .tipAmountText {
+          grid-area: area1;
+          width: max-content; }
+          body #container #sectionTotalAmount .tipAmountText small {
+            color: var(--Grayish-cyan); }
+        body #container #sectionTotalAmount .tipValue {
+          grid-area: area2;
+          font-size: var(--font-size-input);
+          color: var(--primary-strong-cyan);
+          text-align: right; }
+        body #container #sectionTotalAmount .totalText {
+          grid-area: area3; }
+          body #container #sectionTotalAmount .totalText small {
+            color: var(--Grayish-cyan); }
+        body #container #sectionTotalAmount .totalValue {
+          grid-area: area4;
+          font-size: var(--font-size-input);
+          color: var(--primary-strong-cyan);
+          text-align: right; }
+        body #container #sectionTotalAmount #resetBtn {
+          width: 100%;
+          background-color: var(--primary-strong-cyan);
+          color: var(--Very-dark-cyan);
+          font-size: var(--font-size-input);
+          font-weight: var(--font-weight-bold);
+          border: none;
+          border-radius: 5px;
+          margin-top: 90px;
+          height: 50px;
+          padding-bottom: 30px;
+          letter-spacing: 1.5px; }
+        body #container #sectionTotalAmount #resetBtn:hover {
+          cursor: pointer;
+          background-color: var(--Light-grayish-cyan); } }
